@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:16
+    container_name: nse_db
+    environment:
+      POSTGRES_DB:       nse_portfolio
+      POSTGRES_USER:     postgres
+      POSTGRES_PASSWORD: nse_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - nse_pgdata:/var/lib/postgresql/data #mount the data so it survives close of container
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  nse_pgdata:

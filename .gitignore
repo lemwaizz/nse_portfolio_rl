@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+models/**/*.zip
+models/**/*.json
+models/backtest_results.json
+data/raw/*.csv
+plots/*.png
+.ipynb_checkpoints/
+.vscode/
+.DS_Store

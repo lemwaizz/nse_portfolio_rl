@@ -1,0 +1,313 @@
+{
+  "algorithm_results": {
+    "ppo": {
+      "train": {
+        "sharpe_mean": -2.1598,
+        "sharpe_std": 1.6277,
+        "sharpe_pct_positive": 15.0,
+        "sortino_mean": -2.6298,
+        "sortino_std": 3.5644,
+        "mdd_mean": 36.08,
+        "mdd_std": 11.01,
+        "calmar_mean": -0.2552,
+        "return_mean": -20.4756,
+        "return_std": 33.7449,
+        "winrate_mean": 39.17,
+        "n_episodes": 20
+      },
+      "val": {
+        "sharpe_mean": -1.3238,
+        "sharpe_std": 0.6556,
+        "sharpe_pct_positive": 0.0,
+        "sortino_mean": -1.9613,
+        "sortino_std": 0.9687,
+        "mdd_mean": 31.3,
+        "mdd_std": 6.56,
+        "calmar_mean": -0.6389,
+        "return_mean": -21.9122,
+        "return_std": 8.8302,
+        "winrate_mean": 41.47,
+        "n_episodes": 20
+      },
+      "test1": {
+        "sharpe_mean": -2.4071,
+        "sharpe_std": 0.5098,
+        "sharpe_pct_positive": 0.0,
+        "sortino_mean": -3.44,
+        "sortino_std": 0.6797,
+        "mdd_mean": 33.83,
+        "mdd_std": 2.61,
+        "calmar_mean": -1.005,
+        "return_mean": -30.144,
+        "return_std": 4.6388,
+        "winrate_mean": 40.42,
+        "n_episodes": 20
+      },
+      "test2": {
+        "sharpe_mean": -0.0174,
+        "sharpe_std": 0.6312,
+        "sharpe_pct_positive": 55.0,
+        "sortino_mean": -0.0087,
+        "sortino_std": 0.9178,
+        "mdd_mean": 19.58,
+        "mdd_std": 1.79,
+        "calmar_mean": 0.5923,
+        "return_mean": 10.5283,
+        "return_std": 19.5443,
+        "winrate_mean": 46.9,
+        "n_episodes": 20
+      }
+    },
+    "dqn": {
+      "train": {
+        "sharpe_mean": -1.4798,
+        "sharpe_std": 1.8925,
+        "sharpe_pct_positive": 25.0,
+        "sortino_mean": -2.034,
+        "sortino_std": 2.7574,
+        "mdd_mean": 32.27,
+        "mdd_std": 15.9,
+        "calmar_mean": 0.1761,
+        "return_mean": -14.0724,
+        "return_std": 34.6454,
+        "winrate_mean": 43.55,
+        "n_episodes": 20
+      },
+      "val": {
+        "sharpe_mean": -1.0287,
+        "sharpe_std": 0.2502,
+        "sharpe_pct_positive": 0.0,
+        "sortino_mean": -1.5228,
+        "sortino_std": 0.3949,
+        "mdd_mean": 32.64,
+        "mdd_std": 5.82,
+        "calmar_mean": -0.64,
+        "return_mean": -23.2497,
+        "return_std": 6.0747,
+        "winrate_mean": 43.61,
+        "n_episodes": 20
+      },
+      "test1": {
+        "sharpe_mean": -0.5503,
+        "sharpe_std": 0.1474,
+        "sharpe_pct_positive": 0.0,
+        "sortino_mean": -0.801,
+        "sortino_std": 0.2216,
+        "mdd_mean": 16.96,
+        "mdd_std": 2.97,
+        "calmar_mean": -0.1658,
+        "return_mean": -7.0059,
+        "return_std": 3.2607,
+        "winrate_mean": 45.54,
+        "n_episodes": 20
+      },
+      "test2": {
+        "sharpe_mean": 0.1238,
+        "sharpe_std": 0.8913,
+        "sharpe_pct_positive": 55.0,
+        "sortino_mean": 0.2678,
+        "sortino_std": 1.4344,
+        "mdd_mean": 20.21,
+        "mdd_std": 3.82,
+        "calmar_mean": 0.9873,
+        "return_mean": 16.0559,
+        "return_std": 32.1552,
+        "winrate_mean": 45.16,
+        "n_episodes": 20
+      }
+    },
+    "a2c": {
+      "train": {
+        "sharpe_mean": -0.6321,
+        "sharpe_std": 1.9125,
+        "sharpe_pct_positive": 45.0,
+        "sortino_mean": -0.8109,
+        "sortino_std": 3.1084,
+        "mdd_mean": 19.45,
+        "mdd_std": 11.09,
+        "calmar_mean": 1.5511,
+        "return_mean": 6.8924,
+        "return_std": 30.204,
+        "winrate_mean": 47.04,
+        "n_episodes": 20
+      },
+      "val": {
+        "sharpe_mean": -0.6581,
+        "sharpe_std": 0.8269,
+        "sharpe_pct_positive": 25.0,
+        "sortino_mean": -0.9653,
+        "sortino_std": 1.2266,
+        "mdd_mean": 26.38,
+        "mdd_std": 11.96,
+        "calmar_mean": -0.0685,
+        "return_mean": -5.3096,
+        "return_std": 19.5514,
+        "winrate_mean": 42.3,
+        "n_episodes": 20
+      },
+      "test1": {
+        "sharpe_mean": -0.8352,
+        "sharpe_std": 0.2492,
+        "sharpe_pct_positive": 0.0,
+        "sortino_mean": -1.2317,
+        "sortino_std": 0.3708,
+        "mdd_mean": 17.48,
+        "mdd_std": 2.12,
+        "calmar_mean": -0.3173,
+        "return_mean": -7.5168,
+        "return_std": 4.246,
+        "winrate_mean": 40.04,
+        "n_episodes": 20
+      },
+      "test2": {
+        "sharpe_mean": 1.2787,
+        "sharpe_std": 1.6861,
+        "sharpe_pct_positive": 60.0,
+        "sortino_mean": 2.6656,
+        "sortino_std": 3.1837,
+        "mdd_mean": 13.3,
+        "mdd_std": 3.84,
+        "calmar_mean": 4.0261,
+        "return_mean": 60.471,
+        "return_std": 56.8677,
+        "winrate_mean": 49.46,
+        "n_episodes": 20
+      }
+    },
+    "reinforce": {
+      "train": {
+        "sharpe_mean": -0.5123,
+        "sharpe_std": 1.6268,
+        "sharpe_pct_positive": 35.0,
+        "sortino_mean": -0.4978,
+        "sortino_std": 2.3343,
+        "mdd_mean": 22.3,
+        "mdd_std": 10.41,
+        "calmar_mean": 0.7475,
+        "return_mean": 4.1675,
+        "return_std": 33.7365,
+        "winrate_mean": 46.92,
+        "n_episodes": 20
+      },
+      "val": {
+        "sharpe_mean": -1.6998,
+        "sharpe_std": 0.3503,
+        "sharpe_pct_positive": 0.0,
+        "sortino_mean": -2.0103,
+        "sortino_std": 0.4555,
+        "mdd_mean": 27.94,
+        "mdd_std": 5.24,
+        "calmar_mean": -0.8827,
+        "return_mean": -23.5473,
+        "return_std": 4.5975,
+        "winrate_mean": 41.55,
+        "n_episodes": 20
+      },
+      "test1": {
+        "sharpe_mean": -0.8346,
+        "sharpe_std": 0.3185,
+        "sharpe_pct_positive": 0.0,
+        "sortino_mean": -1.0409,
+        "sortino_std": 0.3813,
+        "mdd_mean": 13.72,
+        "mdd_std": 1.73,
+        "calmar_mean": -0.2424,
+        "return_mean": -5.1493,
+        "return_std": 4.6536,
+        "winrate_mean": 46.13,
+        "n_episodes": 20
+      },
+      "test2": {
+        "sharpe_mean": 0.4489,
+        "sharpe_std": 0.6755,
+        "sharpe_pct_positive": 65.0,
+        "sortino_mean": 0.5611,
+        "sortino_std": 0.8739,
+        "mdd_mean": 10.83,
+        "mdd_std": 1.71,
+        "calmar_mean": 2.4606,
+        "return_mean": 25.2396,
+        "return_std": 24.69,
+        "winrate_mean": 54.64,
+        "n_episodes": 20
+      }
+    }
+  },
+  "generalisation_gaps": {
+    "ppo": {
+      "train_sharpe": -2.1598,
+      "test1_sharpe": -2.4071,
+      "raw_difference": 0.2473,
+      "normalised_gap": 0.1145,
+      "target_met": false,
+      "interpretation": "FAIL: gap 0.115 exceeds 0.10 target"
+    },
+    "dqn": {
+      "train_sharpe": -1.4798,
+      "test1_sharpe": -0.5503,
+      "raw_difference": 0.9295,
+      "normalised_gap": 0.6281,
+      "target_met": false,
+      "interpretation": "FAIL: gap 0.628 exceeds 0.10 target"
+    },
+    "a2c": {
+      "train_sharpe": -0.6321,
+      "test1_sharpe": -0.8352,
+      "raw_difference": 0.2031,
+      "normalised_gap": 0.3213,
+      "target_met": false,
+      "interpretation": "FAIL: gap 0.321 exceeds 0.10 target"
+    },
+    "reinforce": {
+      "train_sharpe": -0.5123,
+      "test1_sharpe": -0.8346,
+      "raw_difference": 0.3223,
+      "normalised_gap": 0.6291,
+      "target_met": false,
+      "interpretation": "FAIL: gap 0.629 exceeds 0.10 target"
+    }
+  },
+  "equal_weight_baselines": {
+    "train": {
+      "sharpe_mean": 0.1057,
+      "sortino_mean": 0.5104,
+      "mdd_mean": 13.78,
+      "calmar_mean": 2.3222,
+      "return_mean": 12.5182,
+      "winrate_mean": 50.0
+    },
+    "val": {
+      "sharpe_mean": -3.1673,
+      "sortino_mean": -4.3333,
+      "mdd_mean": 17.52,
+      "calmar_mean": -0.6272,
+      "return_mean": -12.6176,
+      "winrate_mean": 44.86
+    },
+    "test1": {
+      "sharpe_mean": -1.6499,
+      "sortino_mean": -2.4051,
+      "mdd_mean": 7.7,
+      "calmar_mean": 0.3071,
+      "return_mean": -0.1756,
+      "winrate_mean": 49.76
+    },
+    "test2": {
+      "sharpe_mean": 2.3557,
+      "sortino_mean": 3.7413,
+      "mdd_mean": 5.78,
+      "calmar_mean": 5.5452,
+      "return_mean": 33.6048,
+      "winrate_mean": 58.9
+    }
+  },
+  "nse_context": {
+    "rf_annual_pct": 12.27,
+    "rf_daily": 0.000487,
+    "nse_round_trip_pct": 4.16,
+    "breakeven_gross_pct": 16.43,
+    "nse20_avg_return_pct": "5-8",
+    "expected_sharpe": "negative for most strategies",
+    "note": "Positive Sharpe on NSE is a genuine finding. The meaningful comparison is agent Sharpe vs equal-weight baseline Sharpe, not agent Sharpe vs zero."
+  }
+}

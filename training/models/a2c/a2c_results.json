@@ -8,8 +8,8 @@
     "vf": 0.5,
     "gae": 1.0,
     "note": "Baseline",
-    "val_sharpe": -2.8253,
-    "best_ckpt_sharpe": -0.78397
+    "val_sharpe": -3.0716,
+    "best_ckpt_sharpe": -0.75908
   },
   {
     "run": 2,
@@ -20,8 +20,8 @@
     "vf": 0.5,
     "gae": 1.0,
     "note": "Low LR",
-    "val_sharpe": -1.2616,
-    "best_ckpt_sharpe": -0.40083
+    "val_sharpe": -1.5501,
+    "best_ckpt_sharpe": -0.88449
   },
   {
     "run": 3,
@@ -32,8 +32,8 @@
     "vf": 0.5,
     "gae": 1.0,
     "note": "High LR",
-    "val_sharpe": -2.4991,
-    "best_ckpt_sharpe": -1.26887
+    "val_sharpe": -1.3437,
+    "best_ckpt_sharpe": -0.44822
   },
   {
     "run": 4,
@@ -44,8 +44,8 @@
     "vf": 0.5,
     "gae": 0.95,
     "note": "Longer rollout",
-    "val_sharpe": -1.8774,
-    "best_ckpt_sharpe": -0.51054
+    "val_sharpe": -2.0712,
+    "best_ckpt_sharpe": -1.20757
   },
   {
     "run": 5,
@@ -56,8 +56,8 @@
     "vf": 0.5,
     "gae": 0.95,
     "note": "Long rollout",
-    "val_sharpe": -1.0925,
-    "best_ckpt_sharpe": -0.81654
+    "val_sharpe": -2.3405,
+    "best_ckpt_sharpe": -0.76134
   },
   {
     "run": 6,
@@ -68,8 +68,8 @@
     "vf": 0.5,
     "gae": 1.0,
     "note": "High entropy",
-    "val_sharpe": -1.2179,
-    "best_ckpt_sharpe": -0.81597
+    "val_sharpe": -2.6785,
+    "best_ckpt_sharpe": -0.37321
   },
   {
     "run": 7,
@@ -80,8 +80,8 @@
     "vf": 0.75,
     "gae": 1.0,
     "note": "High vf_coef",
-    "val_sharpe": -1.1658,
-    "best_ckpt_sharpe": -0.8702
+    "val_sharpe": -2.5624,
+    "best_ckpt_sharpe": -1.09547
   },
   {
     "run": 8,
@@ -92,8 +92,8 @@
     "vf": 0.5,
     "gae": 0.9,
     "note": "Low gamma",
-    "val_sharpe": -1.4753,
-    "best_ckpt_sharpe": -0.74916
+    "val_sharpe": -2.2154,
+    "best_ckpt_sharpe": -1.19831
   },
   {
     "run": 9,
@@ -104,8 +104,8 @@
     "vf": 0.5,
     "gae": 0.95,
     "note": "Mid",
-    "val_sharpe": -2.582,
-    "best_ckpt_sharpe": -1.14165
+    "val_sharpe": -0.4758,
+    "best_ckpt_sharpe": -0.21443
   },
   {
     "run": 10,
@@ -116,7 +116,7 @@
     "vf": 0.6,
     "gae": 0.95,
     "note": "Combined",
-    "val_sharpe": -0.9779,
-    "best_ckpt_sharpe": -1.15871
+    "val_sharpe": -1.5518,
+    "best_ckpt_sharpe": -0.90585
   }
 ]

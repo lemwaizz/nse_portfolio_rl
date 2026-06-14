@@ -8,8 +8,8 @@
     "eps": 0.05,
     "tgt": 500,
     "note": "Baseline",
-    "val_sharpe": -1.9088,
-    "best_ckpt_sharpe": -0.82394
+    "val_sharpe": -3.0939,
+    "best_ckpt_sharpe": -0.42651
   },
   {
     "run": 2,
@@ -20,8 +20,8 @@
     "eps": 0.05,
     "tgt": 500,
     "note": "Low LR",
-    "val_sharpe": -2.8037,
-    "best_ckpt_sharpe": -0.64574
+    "val_sharpe": -1.2345,
+    "best_ckpt_sharpe": -0.87888
   },
   {
     "run": 3,
@@ -32,8 +32,8 @@
     "eps": 0.05,
     "tgt": 500,
     "note": "VLow LR",
-    "val_sharpe": -2.0205,
-    "best_ckpt_sharpe": -1.04831
+    "val_sharpe": -3.2798,
+    "best_ckpt_sharpe": -0.4703
   },
   {
     "run": 4,
@@ -44,8 +44,8 @@
     "eps": 0.05,
     "tgt": 500,
     "note": "Low gamma",
-    "val_sharpe": -2.3488,
-    "best_ckpt_sharpe": -0.22903
+    "val_sharpe": -1.2167,
+    "best_ckpt_sharpe": -1.01991
   },
   {
     "run": 5,
@@ -56,8 +56,8 @@
     "eps": 0.1,
     "tgt": 200,
     "note": "Small buf",
-    "val_sharpe": -1.457,
-    "best_ckpt_sharpe": -0.21457
+    "val_sharpe": -2.7595,
+    "best_ckpt_sharpe": -0.74218
   },
   {
     "run": 6,
@@ -68,8 +68,8 @@
     "eps": 0.02,
     "tgt": 1000,
     "note": "Large buf",
-    "val_sharpe": -2.0926,
-    "best_ckpt_sharpe": -0.6157
+    "val_sharpe": -1.4073,
+    "best_ckpt_sharpe": -1.15145
   },
   {
     "run": 7,
@@ -80,8 +80,8 @@
     "eps": 0.2,
     "tgt": 500,
     "note": "High eps",
-    "val_sharpe": -1.4571,
-    "best_ckpt_sharpe": -1.00412
+    "val_sharpe": -3.3826,
+    "best_ckpt_sharpe": -1.5561
   },
   {
     "run": 8,
@@ -92,8 +92,8 @@
     "eps": 0.01,
     "tgt": 500,
     "note": "Large batch",
-    "val_sharpe": -1.974,
-    "best_ckpt_sharpe": -1.19203
+    "val_sharpe": -3.5648,
+    "best_ckpt_sharpe": -0.99099
   },
   {
     "run": 9,
@@ -104,8 +104,8 @@
     "eps": 0.05,
     "tgt": 300,
     "note": "Mid",
-    "val_sharpe": -3.3457,
-    "best_ckpt_sharpe": -0.75045
+    "val_sharpe": -2.7166,
+    "best_ckpt_sharpe": -0.71696
   },
   {
     "run": 10,
@@ -116,7 +116,7 @@
     "eps": 0.05,
     "tgt": 500,
     "note": "Myopic",
-    "val_sharpe": -2.2234,
-    "best_ckpt_sharpe": -0.53059
+    "val_sharpe": -3.1351,
+    "best_ckpt_sharpe": -0.87084
   }
 ]

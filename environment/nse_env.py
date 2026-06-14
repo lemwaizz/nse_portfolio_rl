@@ -75,6 +75,7 @@ class NSEPortfolioEnv(gym.Env):
         self.avail   = data["availability"]
         self.dates   = data["dates"]
         self.T       = data["T"]
+        self.tickers = ALL_TICKERS
         self._r1     = data["return_1d"]
         self._r5     = data["return_5d"]
         self._r20    = data["return_20d"]
@@ -168,13 +169,19 @@ class NSEPortfolioEnv(gym.Env):
 
         self.t += 1
         tc  = min(self.t, self.T - 1)
-        ret = ((self.prices[tc] - self.prices[self.t - 1]) /
-               (self.prices[self.t - 1] + 1e-8)) * self.avail[tc]
+        tp  = self.t - 1
+
+        # Replace NaN prices with the previous price so the return is 0 for missing data
+        prices_tc = np.where(np.isnan(self.prices[tc]), self.prices[tp], self.prices[tc])
+        prices_tp = np.where(np.isnan(self.prices[tp]), prices_tc, self.prices[tp])
+
+        ret = ((prices_tc - prices_tp) / (prices_tp + 1e-8)) * self.avail[tc]
+        ret = np.nan_to_num(ret, nan=0.0, posinf=0.0, neginf=0.0)
         pr  = float(np.dot(self.weights, ret))
 
         self.portfolio_val = max(self.portfolio_val * (1 + pr) - self.portfolio_val * cf, 0.01)
+        self.portfolio_val = float(np.nan_to_num(self.portfolio_val, nan=0.01))
         self.peak_val      = max(self.peak_val, self.portfolio_val)
-
         rew   = self._reward(pr, cf)
         dd    = (self.peak_val - self.portfolio_val) / (self.peak_val + 1e-8)
         term  = bool(dd >= self.MAX_DRAWDOWN)
@@ -199,8 +206,8 @@ class NSEPortfolioEnv(gym.Env):
         cs  = self._cs[t]  * av
         am  = np.clip(self._am[t] / (self._am95 + 1e-12), 0, 5) * av
         obs = np.concatenate([r1, r5, r20, r60, v20, cs, am, self.weights]).astype(np.float32)
+        obs = np.nan_to_num(obs, nan=0.0, posinf=0.0, neginf=0.0)
         return np.clip(obs, -10.0, 10.0)
-
     def _reward(self, pr: float, cf: float) -> float:
         vol = float(np.std(self.reward_hist[-20:])) if len(self.reward_hist) >= 20 else 0.0
         return float(pr - cf - self._vol_penalty * vol)

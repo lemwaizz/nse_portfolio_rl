@@ -1,0 +1,102 @@
+[
+  {
+    "run": 1,
+    "lr": 0.001,
+    "gamma": 0.99,
+    "n": 2048,
+    "ent": 0.0,
+    "note": "Baseline",
+    "val_sharpe": -2.9623,
+    "best_ckpt_sharpe": -2.27315
+  },
+  {
+    "run": 2,
+    "lr": 0.0005,
+    "gamma": 0.99,
+    "n": 2048,
+    "ent": 0.0,
+    "note": "Low LR",
+    "val_sharpe": -3.4213,
+    "best_ckpt_sharpe": -1.20226
+  },
+  {
+    "run": 3,
+    "lr": 0.002,
+    "gamma": 0.99,
+    "n": 2048,
+    "ent": 0.0,
+    "note": "High LR",
+    "val_sharpe": -3.0277,
+    "best_ckpt_sharpe": -2.09499
+  },
+  {
+    "run": 4,
+    "lr": 0.001,
+    "gamma": 0.95,
+    "n": 2048,
+    "ent": 0.0,
+    "note": "Low gamma",
+    "val_sharpe": -3.319,
+    "best_ckpt_sharpe": -1.13681
+  },
+  {
+    "run": 5,
+    "lr": 0.001,
+    "gamma": 0.9,
+    "n": 2048,
+    "ent": 0.0,
+    "note": "VLow gamma",
+    "val_sharpe": -3.3294,
+    "best_ckpt_sharpe": -1.0998
+  },
+  {
+    "run": 6,
+    "lr": 0.001,
+    "gamma": 0.99,
+    "n": 1024,
+    "ent": 0.0,
+    "note": "Short traj",
+    "val_sharpe": -1.8127,
+    "best_ckpt_sharpe": -0.65412
+  },
+  {
+    "run": 7,
+    "lr": 0.001,
+    "gamma": 0.99,
+    "n": 4096,
+    "ent": 0.0,
+    "note": "Long traj",
+    "val_sharpe": -3.1652,
+    "best_ckpt_sharpe": -0.39717
+  },
+  {
+    "run": 8,
+    "lr": 0.001,
+    "gamma": 0.99,
+    "n": 2048,
+    "ent": 0.01,
+    "note": "Sm entropy",
+    "val_sharpe": -2.0426,
+    "best_ckpt_sharpe": -0.75949
+  },
+  {
+    "run": 9,
+    "lr": 0.0003,
+    "gamma": 0.99,
+    "n": 512,
+    "ent": 0.0,
+    "note": "LR+short",
+    "val_sharpe": -6.9918,
+    "best_ckpt_sharpe": -1.4118
+  },
+  {
+    "run": 10,
+    "lr": 0.001,
+    "gamma": 0.97,
+    "n": 2048,
+    "ent": 0.02,
+    "note": "Mid+ent",
+    "val_sharpe": -1.1676,
+    "best_ckpt_sharpe": -0.81336
+  }
+]

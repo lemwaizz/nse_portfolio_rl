@@ -1,0 +1,122 @@
+[
+  {
+    "run": 1,
+    "lr": 0.001,
+    "gamma": 0.99,
+    "buf": 50000,
+    "batch": 64,
+    "eps": 0.05,
+    "tgt": 500,
+    "note": "Baseline",
+    "val_sharpe": -1.9088,
+    "best_ckpt_sharpe": -0.82394
+  },
+  {
+    "run": 2,
+    "lr": 0.0005,
+    "gamma": 0.99,
+    "buf": 50000,
+    "batch": 64,
+    "eps": 0.05,
+    "tgt": 500,
+    "note": "Low LR",
+    "val_sharpe": -2.8037,
+    "best_ckpt_sharpe": -0.64574
+  },
+  {
+    "run": 3,
+    "lr": 0.0001,
+    "gamma": 0.99,
+    "buf": 50000,
+    "batch": 64,
+    "eps": 0.05,
+    "tgt": 500,
+    "note": "VLow LR",
+    "val_sharpe": -2.0205,
+    "best_ckpt_sharpe": -1.04831
+  },
+  {
+    "run": 4,
+    "lr": 0.001,
+    "gamma": 0.95,
+    "buf": 50000,
+    "batch": 64,
+    "eps": 0.05,
+    "tgt": 500,
+    "note": "Low gamma",
+    "val_sharpe": -2.3488,
+    "best_ckpt_sharpe": -0.22903
+  },
+  {
+    "run": 5,
+    "lr": 0.001,
+    "gamma": 0.99,
+    "buf": 10000,
+    "batch": 32,
+    "eps": 0.1,
+    "tgt": 200,
+    "note": "Small buf",
+    "val_sharpe": -1.457,
+    "best_ckpt_sharpe": -0.21457
+  },
+  {
+    "run": 6,
+    "lr": 0.001,
+    "gamma": 0.99,
+    "buf": 100000,
+    "batch": 128,
+    "eps": 0.02,
+    "tgt": 1000,
+    "note": "Large buf",
+    "val_sharpe": -2.0926,
+    "best_ckpt_sharpe": -0.6157
+  },
+  {
+    "run": 7,
+    "lr": 0.001,
+    "gamma": 0.99,
+    "buf": 50000,
+    "batch": 64,
+    "eps": 0.2,
+    "tgt": 500,
+    "note": "High eps",
+    "val_sharpe": -1.4571,
+    "best_ckpt_sharpe": -1.00412
+  },
+  {
+    "run": 8,
+    "lr": 0.001,
+    "gamma": 0.99,
+    "buf": 50000,
+    "batch": 256,
+    "eps": 0.01,
+    "tgt": 500,
+    "note": "Large batch",
+    "val_sharpe": -1.974,
+    "best_ckpt_sharpe": -1.19203
+  },
+  {
+    "run": 9,
+    "lr": 0.0005,
+    "gamma": 0.97,
+    "buf": 20000,
+    "batch": 64,
+    "eps": 0.05,
+    "tgt": 300,
+    "note": "Mid",
+    "val_sharpe": -3.3457,
+    "best_ckpt_sharpe": -0.75045
+  },
+  {
+    "run": 10,
+    "lr": 0.001,
+    "gamma": 0.9,
+    "buf": 50000,
+    "batch": 64,
+    "eps": 0.05,
+    "tgt": 500,
+    "note": "Myopic",
+    "val_sharpe": -2.2234,
+    "best_ckpt_sharpe": -0.53059
+  }
+]

@@ -60,33 +60,41 @@ class RewardLogger(BaseCallback):
 
 class SharpeEvalCallback(BaseCallback):
     """
-    Evaluates on the validation set using per-episode Sharpe ratio.
+    Evaluates the model on the validation environment using Sharpe ratio.
     Saves a checkpoint whenever validation Sharpe improves.
+    Stops training early if Sharpe has not improved for `patience` evaluations.
 
     Args:
         val_env_fn:      callable returning a fresh validation environment
         eval_freq:       evaluate every N training steps
         save_path:       path to save the best model (without .zip)
         n_eval_episodes: number of validation episodes per evaluation
+        patience:        stop training if no improvement for this many evals
+                         Set to None to disable early stopping
         verbose:         1 to print progress, 0 to suppress
     """
 
     def __init__(
         self,
         val_env_fn,
-        eval_freq:       int = 10_000,
-        save_path:       str = "models/ppo/best",
-        n_eval_episodes: int = 10,
-        verbose:         int = 1,
+        eval_freq:       int  = 10_000,
+        save_path:       str  = "models/ppo/best",
+        n_eval_episodes: int  = 10,
+        patience:        int  = 5,
+        verbose:         int  = 1,
     ):
         super().__init__(verbose)
         self.val_env_fn       = val_env_fn
         self.eval_freq        = eval_freq
         self.save_path        = save_path
         self.n_eval_episodes  = n_eval_episodes
+        self.patience         = patience
+
         self.best_sharpe      = -np.inf
-        self.sharpe_history   = []   # validation Sharpe at each evaluation point
-        self.eval_steps       = []   # training step at each evaluation point
+        self.sharpe_history   = []
+        self.eval_steps       = []
+        self.evals_no_improve = 0      # counts how many evals since last improvement
+        self.stopped_early    = False  # flag so train_one can check this
 
     def _on_step(self) -> bool:
         if self.n_calls % self.eval_freq == 0:
@@ -95,23 +103,42 @@ class SharpeEvalCallback(BaseCallback):
             self.eval_steps.append(self.n_calls)
 
             if self.verbose:
-                marker = " <- NEW BEST" if mean_sharpe > self.best_sharpe else ""
+                marker = " <- NEW BEST" if mean_sharpe > self.best_sharpe else \
+                         f" (no improve {self.evals_no_improve + 1}/{self.patience})"
                 print(
                     f"  [Step {self.n_calls:>8,}]  "
                     f"Val Sharpe: {mean_sharpe:>+8.4f}  "
-                    f"(best so far: {self.best_sharpe:>+8.4f}){marker}"
+                    f"(best: {self.best_sharpe:>+8.4f}){marker}"
                 )
 
             if mean_sharpe > self.best_sharpe:
-                self.best_sharpe = mean_sharpe
+                # Improvement found — save checkpoint and reset patience counter
+                self.best_sharpe      = mean_sharpe
+                self.evals_no_improve = 0
                 self.model.save(self.save_path)
-        return True
+
+            else:
+                # No improvement — increment patience counter
+                self.evals_no_improve += 1
+
+                if self.patience is not None and self.evals_no_improve >= self.patience:
+                    if self.verbose:
+                        print(
+                            f"\n  [Early Stop] No Sharpe improvement for "
+                            f"{self.patience} consecutive evaluations."
+                            f"\n  Best Sharpe was {self.best_sharpe:>+.4f} "
+                            f"at step {self.eval_steps[self.sharpe_history.index(self.best_sharpe)]:,}."
+                            f"\n  Stopping training now to avoid policy degradation.\n"
+                        )
+                    self.stopped_early = True
+                    return False   # returning False stops the training loop
+
+        return True   # returning True continues training
 
     def _compute_validation_sharpe(self) -> float:
         """
-        Run n_eval_episodes on the validation environment.
-        Compute Sharpe for EACH episode individually.
-        Return the mean of per-episode Sharpe values.
+        Run n_eval_episodes on validation environment.
+        Compute Sharpe per episode individually. Return the mean.
         """
         sharpes = []
         for _ in range(self.n_eval_episodes):

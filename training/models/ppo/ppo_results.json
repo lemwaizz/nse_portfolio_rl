@@ -9,8 +9,10 @@
     "ep": 10,
     "gae": 0.95,
     "note": "Baseline",
-    "val_sharpe": -2.0699,
-    "best_ckpt_sharpe": -0.7053
+    "val_sharpe": -1.8098,
+    "best_ckpt_sharpe": -1.8098,
+    "final_sharpe": -3.0639,
+    "stopped_early": true
   },
   {
     "run": 2,
@@ -22,8 +24,10 @@
     "ep": 10,
     "gae": 0.95,
     "note": "Low LR",
-    "val_sharpe": -1.2264,
-    "best_ckpt_sharpe": -0.83463
+    "val_sharpe": -1.30646,
+    "best_ckpt_sharpe": -1.30646,
+    "final_sharpe": -1.8923,
+    "stopped_early": true
   },
   {
     "run": 3,
@@ -35,8 +39,10 @@
     "ep": 10,
     "gae": 0.95,
     "note": "High LR",
-    "val_sharpe": -2.072,
-    "best_ckpt_sharpe": -1.04388
+    "val_sharpe": -0.96645,
+    "best_ckpt_sharpe": -0.96645,
+    "final_sharpe": -2.0558,
+    "stopped_early": false
   },
   {
     "run": 4,
@@ -48,8 +54,10 @@
     "ep": 10,
     "gae": 0.95,
     "note": "Low gamma",
-    "val_sharpe": -1.2277,
-    "best_ckpt_sharpe": -1.39283
+    "val_sharpe": -1.61495,
+    "best_ckpt_sharpe": -1.61495,
+    "final_sharpe": -2.6863,
+    "stopped_early": true
   },
   {
     "run": 5,
@@ -61,8 +69,10 @@
     "ep": 10,
     "gae": 0.95,
     "note": "Long rollout",
-    "val_sharpe": -2.6759,
-    "best_ckpt_sharpe": -0.91742
+    "val_sharpe": -2.1136,
+    "best_ckpt_sharpe": -2.1136,
+    "final_sharpe": -1.497,
+    "stopped_early": true
   },
   {
     "run": 6,
@@ -74,8 +84,10 @@
     "ep": 5,
     "gae": 0.9,
     "note": "Short rollout",
-    "val_sharpe": -1.3135,
-    "best_ckpt_sharpe": -0.87881
+    "val_sharpe": -1.39478,
+    "best_ckpt_sharpe": -1.39478,
+    "final_sharpe": -3.3005,
+    "stopped_early": true
   },
   {
     "run": 7,
@@ -87,8 +99,10 @@
     "ep": 10,
     "gae": 0.95,
     "note": "Tight clip",
-    "val_sharpe": -1.5817,
-    "best_ckpt_sharpe": -1.06889
+    "val_sharpe": -1.62143,
+    "best_ckpt_sharpe": -1.62143,
+    "final_sharpe": -3.9437,
+    "stopped_early": false
   },
   {
     "run": 8,
@@ -100,8 +114,10 @@
     "ep": 10,
     "gae": 0.98,
     "note": "Loose clip",
-    "val_sharpe": -1.1271,
-    "best_ckpt_sharpe": -1.18155
+    "val_sharpe": -0.73353,
+    "best_ckpt_sharpe": -0.73353,
+    "final_sharpe": -1.89,
+    "stopped_early": true
   },
   {
     "run": 9,
@@ -113,8 +129,10 @@
     "ep": 10,
     "gae": 0.92,
     "note": "Exploit",
-    "val_sharpe": -1.6429,
-    "best_ckpt_sharpe": -0.92957
+    "val_sharpe": -0.64376,
+    "best_ckpt_sharpe": -0.64376,
+    "final_sharpe": -1.129,
+    "stopped_early": false
   },
   {
     "run": 10,
@@ -126,7 +144,9 @@
     "ep": 4,
     "gae": 0.95,
     "note": "Aggressive",
-    "val_sharpe": -1.9541,
-    "best_ckpt_sharpe": -0.9258
+    "val_sharpe": -1.01665,
+    "best_ckpt_sharpe": -1.01665,
+    "final_sharpe": -2.76,
+    "stopped_early": true
   }
 ]

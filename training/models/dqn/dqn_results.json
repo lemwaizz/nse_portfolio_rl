@@ -8,8 +8,10 @@
     "eps": 0.05,
     "tgt": 500,
     "note": "Baseline",
-    "val_sharpe": -3.0939,
-    "best_ckpt_sharpe": -0.42651
+    "val_sharpe": -1.61332,
+    "best_ckpt_sharpe": -1.61332,
+    "final_sharpe": -1.5262,
+    "stopped_early": true
   },
   {
     "run": 2,
@@ -20,8 +22,10 @@
     "eps": 0.05,
     "tgt": 500,
     "note": "Low LR",
-    "val_sharpe": -1.2345,
-    "best_ckpt_sharpe": -0.87888
+    "val_sharpe": -0.87576,
+    "best_ckpt_sharpe": -0.87576,
+    "final_sharpe": -1.0673,
+    "stopped_early": true
   },
   {
     "run": 3,
@@ -32,8 +36,10 @@
     "eps": 0.05,
     "tgt": 500,
     "note": "VLow LR",
-    "val_sharpe": -3.2798,
-    "best_ckpt_sharpe": -0.4703
+    "val_sharpe": -0.9204,
+    "best_ckpt_sharpe": -0.9204,
+    "final_sharpe": -2.4604,
+    "stopped_early": true
   },
   {
     "run": 4,
@@ -44,8 +50,10 @@
     "eps": 0.05,
     "tgt": 500,
     "note": "Low gamma",
-    "val_sharpe": -1.2167,
-    "best_ckpt_sharpe": -1.01991
+    "val_sharpe": -1.34803,
+    "best_ckpt_sharpe": -1.34803,
+    "final_sharpe": -3.1196,
+    "stopped_early": true
   },
   {
     "run": 5,
@@ -56,8 +64,10 @@
     "eps": 0.1,
     "tgt": 200,
     "note": "Small buf",
-    "val_sharpe": -2.7595,
-    "best_ckpt_sharpe": -0.74218
+    "val_sharpe": -1.11978,
+    "best_ckpt_sharpe": -1.11978,
+    "final_sharpe": -7.5126,
+    "stopped_early": false
   },
   {
     "run": 6,
@@ -68,8 +78,10 @@
     "eps": 0.02,
     "tgt": 1000,
     "note": "Large buf",
-    "val_sharpe": -1.4073,
-    "best_ckpt_sharpe": -1.15145
+    "val_sharpe": -1.23716,
+    "best_ckpt_sharpe": -1.23716,
+    "final_sharpe": -2.526,
+    "stopped_early": true
   },
   {
     "run": 7,
@@ -80,8 +92,10 @@
     "eps": 0.2,
     "tgt": 500,
     "note": "High eps",
-    "val_sharpe": -3.3826,
-    "best_ckpt_sharpe": -1.5561
+    "val_sharpe": -0.93771,
+    "best_ckpt_sharpe": -0.93771,
+    "final_sharpe": -3.2596,
+    "stopped_early": true
   },
   {
     "run": 8,
@@ -92,8 +106,10 @@
     "eps": 0.01,
     "tgt": 500,
     "note": "Large batch",
-    "val_sharpe": -3.5648,
-    "best_ckpt_sharpe": -0.99099
+    "val_sharpe": -1.05775,
+    "best_ckpt_sharpe": -1.05775,
+    "final_sharpe": -2.2333,
+    "stopped_early": true
   },
   {
     "run": 9,
@@ -104,8 +120,10 @@
     "eps": 0.05,
     "tgt": 300,
     "note": "Mid",
-    "val_sharpe": -2.7166,
-    "best_ckpt_sharpe": -0.71696
+    "val_sharpe": -0.7621,
+    "best_ckpt_sharpe": -0.7621,
+    "final_sharpe": -1.3047,
+    "stopped_early": true
   },
   {
     "run": 10,
@@ -116,7 +134,9 @@
     "eps": 0.05,
     "tgt": 500,
     "note": "Myopic",
-    "val_sharpe": -3.1351,
-    "best_ckpt_sharpe": -0.87084
+    "val_sharpe": -0.85829,
+    "best_ckpt_sharpe": -0.85829,
+    "final_sharpe": -3.3207,
+    "stopped_early": false
   }
 ]

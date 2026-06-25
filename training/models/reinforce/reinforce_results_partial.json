@@ -1,0 +1,47 @@
+[
+  {
+    "run": 1,
+    "lr": 0.001,
+    "gamma": 0.99,
+    "n": 2016,
+    "ent": 0.0,
+    "clip": 0.2,
+    "ep": 10,
+    "gae": 0.95,
+    "note": "Baseline",
+    "val_sharpe": -0.65181,
+    "best_ckpt_sharpe": -0.65181,
+    "final_sharpe": -1.721,
+    "stopped_early": false
+  },
+  {
+    "run": 2,
+    "lr": 0.0005,
+    "gamma": 0.99,
+    "n": 2016,
+    "ent": 0.0,
+    "clip": 0.2,
+    "ep": 10,
+    "gae": 0.95,
+    "note": "Low LR",
+    "val_sharpe": -1.64907,
+    "best_ckpt_sharpe": -1.64907,
+    "final_sharpe": -2.1356,
+    "stopped_early": false
+  },
+  {
+    "run": 3,
+    "lr": 0.002,
+    "gamma": 0.99,
+    "n": 2016,
+    "ent": 0.0,
+    "clip": 0.2,
+    "ep": 10,
+    "gae": 0.95,
+    "note": "High LR",
+    "val_sharpe": -1.38487,
+    "best_ckpt_sharpe": -1.38487,
+    "final_sharpe": -1.9513,
+    "stopped_early": true
+  }
+]

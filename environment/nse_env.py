@@ -106,7 +106,7 @@ class NSEPortfolioEnv(gym.Env):
         self.value_hist    = []
         self.reward_hist   = []
 
-    def reset(self, seed=None, options=None):
+    def reset(self, seed=None, options=None, start_t=None):
         super().reset(seed=seed)
         if self.domain_randomise:
             self.cost_model.BROKERAGE_RATE = float(self.np_random.uniform(0.015, 0.022))
@@ -114,7 +114,10 @@ class NSEPortfolioEnv(gym.Env):
             self._vol_penalty = float(self.np_random.uniform(0.02, 0.06))
 
         # Start at least 65 steps in so return_60d is populated
-        self.t = int(self.np_random.integers(65, max(66, self.T - self.EPISODE_LEN - 5)))
+        if start_t is not None:
+            self.t = int(start_t)
+        else:
+            self.t = int(self.np_random.integers(65, max(66, self.T - self.EPISODE_LEN - 5)))
 
         av = self.avail[self.t]
         na = int(av.sum())

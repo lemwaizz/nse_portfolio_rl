@@ -6,7 +6,6 @@ __pycache__/
 models/**/*.zip
 models/**/*.json
 models/backtest_results.json
-data/raw/*.csv
 plots/*.png
 .ipynb_checkpoints/
 .vscode/

@@ -1,0 +1,7 @@
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+stable-baselines3>=2.3.0
+torch>=2.2.0
+numpy>=1.26.0
+pydantic>=2.7.0
+annotated-types

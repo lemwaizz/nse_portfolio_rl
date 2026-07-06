@@ -1,0 +1,10 @@
+ALL_TICKERS = sorted([
+    "ABSA","ARM","BAMB","BAT","BKG","BOC","BRIT","CABL","CARB","CGEN",
+    "CIC","COOP","CRWN","CTUM","DCON","DTK","EABL","EGAD","EQTY","EVRD",
+    "FAHR","FTGH","GLD","HAFR","HBE","HFCK","IMH","JUB","KAPC","KCB",
+    "KEGN","KNRE","KPLC","KPLC-P4","KPLC-P7","KQ","KUKZ","KURV","LAPR",
+    "LBTY","LIMT","LKL","MSC","NBK","NBV","NCBA","NMG","NSE","OCH",
+    "ORCH","PORT","SASN","SBIC","SCAN","SCBK","SCOM","SGL","SLAM","SMER",
+    "TCL","TOTL","TPSE","UCHM","UMME","UNGA","WTK","XPRS",
+])
+N_STOCKS = len(ALL_TICKERS)  # 67

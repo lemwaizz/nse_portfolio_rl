@@ -1,0 +1,49 @@
+name: quant
+services:
+  quant:
+    image: ghcr.io/lewynation/quant:sha-ea7153e
+    container_name: quant
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:4000:3000"
+    networks:
+      - proxy
+      - quant
+    environment:
+      - POSTGRES_HOST=quant_pg
+      - POSTGRES_DB=quant
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=100%Quant.
+      - POSTGRES_PORT=5432
+      - NODE_ENV=production
+      - BETTER_AUTH_SECRET=SocketDashboard
+      - GOOGLE_GEMINI_API_KEY=SocketDashboard
+      - QUANT_RECOMMENDER_ENDPOINT=http://quant_recommender:8000/recommendations
+
+  quant_pg:
+    container_name: quant_pg
+    restart: unless-stopped
+    image: postgres:latest
+    networks:
+      - quant
+    ports:
+      - 127.0.0.1:5432:5432
+    volumes:
+      - ./volumes/pg-18/data:/var/lib/postgresql/18/docker
+    environment:
+      - POSTGRES_PASSWORD=100%Quant.
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=quant
+
+  quant_recommender:
+    container_name: quant_recommender
+    restart: unless-stopped
+    image: ghcr.io/lewynation/quant_recommender:sha-677f0e5
+    networks:
+      - quant
+
+networks:
+  proxy:
+    external: true
+  quant:
+    external: true

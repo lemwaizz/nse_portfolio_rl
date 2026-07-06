@@ -3,14 +3,11 @@ __pycache__/
 *.pyc
 *.pyo
 .pytest_cache/
-models/**/*.zip
+# models/**/*.zip
 models/**/*.json
 models/backtest_results.json
 plots/*.png
 .ipynb_checkpoints/
 .vscode/
 .DS_Store
-node_modules
-.next
-out
-.vercel
+.venv

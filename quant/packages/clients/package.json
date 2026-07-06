@@ -1,0 +1,29 @@
+{
+  "name": "clients",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@elysiajs/eden": "^1.4.9",
+    "better-auth": "catalog:shared",
+    "elysia": "catalog:shared",
+    "next": "catalog:frontend",
+    "react": "catalog:frontend",
+    "react-dom": "catalog:frontend"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "typescript": "^6"
+  },
+  "ignoreScripts": [
+    "sharp",
+    "unrs-resolver"
+  ],
+  "trustedDependencies": [
+    "sharp",
+    "unrs-resolver"
+  ]
+}

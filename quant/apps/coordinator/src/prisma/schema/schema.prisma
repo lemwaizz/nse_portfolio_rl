@@ -1,0 +1,172 @@
+generator client {
+  provider = "prisma-kysely"
+  output   = "../kysely"
+  // decimalTypeOverride = "number"
+  // enumFileName        = "enums.ts"
+  fileName = "types.ts"
+}
+
+datasource db {
+  provider = "postgresql"
+  // url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id
+  name          String
+  email         String
+  emailVerified Boolean   @default(false)
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  sessions      Session[]
+  accounts      Account[]
+  holdings      Holding[]
+
+  role              String?
+  banned            Boolean?           @default(false)
+  banReason         String?
+  banExpires        DateTime?
+  companies         Company[]
+  riskProfile       RiskProfile?
+  rlrecommendations RLRecommendation[]
+  feedback          Feedback[]
+
+  @@unique([email])
+  @@map("user")
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  impersonatedBy String?
+
+  @@unique([token])
+  @@index([userId])
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([userId])
+  @@map("account")
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+  @@map("verification")
+}
+
+model Company {
+  id          String    @id @default(dbgenerated("uuidv7()"))
+  createdAt   DateTime  @default(now())
+  name        String
+  ticker      String
+  logoUrl     String?
+  holdings    Holding[]
+  createdBy   User      @relation(fields: [createdById], references: [id], onDelete: Cascade)
+  createdById String
+
+  @@map("company")
+}
+
+model Holding {
+  id                String   @id @default(dbgenerated("uuidv7()"))
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId            String
+  createdAt         DateTime @default(now())
+  company           Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  companyId         String
+  shares            Int
+  averageSharePrice Int
+
+  @@map("holding")
+}
+
+model RLRecommendation {
+  id        String   @id @default(dbgenerated("uuidv7()"))
+  createdAt DateTime @default(now())
+  payload   Json?    @db.JsonB
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  rationale String?
+
+  @@map("rl_recommendation")
+}
+
+enum RiskProfileCategory {
+  conservative
+  moderate
+  aggressive
+}
+
+enum InvestmentHorizon {
+  short
+  medium
+  long
+}
+
+enum InvestmentGoal {
+  preserveCapital
+  generateIncome
+  growWealth
+}
+
+enum LossReaction {
+  sellImmediately
+  hold
+  buyMore
+}
+
+model RiskProfile {
+  id                 String              @id @default(dbgenerated("uuidv7()"))
+  createdAt          DateTime            @default(now())
+  user               User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId             String              @unique
+  category           RiskProfileCategory
+  investementHorizon InvestmentHorizon
+  investmentGoal     InvestmentGoal
+  lossReaction       LossReaction
+
+  @@map("risk_profile")
+}
+
+model Feedback {
+  id        String   @id @default(dbgenerated("uuidv7()"))
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  title     String
+  feedback  String
+
+  @@map("feedback")
+}

@@ -1,0 +1,14 @@
+node_modules
+out
+dist
+*.tgz
+.idea
+logs
+_.log
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+.eslintcache
+.cache
+*.tsbuildinfo
+/.next/
+/out/
+.vercel

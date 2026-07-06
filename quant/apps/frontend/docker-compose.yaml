@@ -1,0 +1,22 @@
+name: nse-quant
+services:
+  nse_quant:
+    image: ghcr.io/lewynation/nse_quant:sha-e80cb29
+    container_name: nse_quant
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:4000:3000"
+    networks:
+      - proxy
+    environment:
+      - POSTGRES_HOST=localhost
+      - POSTGRES_DB=elysia
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=lewynation
+      - POSTGRES_PORT=5432
+      - NODE_ENV=production
+      - DISABLED_FEATURES=SocketDashboard
+
+networks:
+  proxy:
+    external: true

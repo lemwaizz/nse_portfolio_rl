@@ -2,7 +2,7 @@
 evaluation/metrics.py
 Portfolio performance metrics with correct per-episode Sharpe implementation.
 
-SHARPE RATIO — THE CORRECT IMPLEMENTATION:
+SHARPE RATIO:
 
   Wrong (common in DRL portfolio papers):
     avg_values = mean([ep1_vals, ep2_vals, ...])   <- variance is averaged out
@@ -109,17 +109,37 @@ def sharpe_generalisation_gap(train_sharpe: float, test_sharpe: float) -> dict:
     """
     raw_diff   = abs(train_sharpe - test_sharpe)
     normalised = raw_diff / (abs(train_sharpe) + 1e-6)
+
+    if test_sharpe > train_sharpe:
+        direction = "improved"
+    elif test_sharpe < train_sharpe:
+        direction = "degraded"
+    else:
+        direction = "unchanged"
+
+    target_met = bool(normalised < 0.10)
+    if target_met:
+        interpretation = "PASS: strategy generalises within 10% Sharpe on unseen data"
+    elif direction == "improved":
+        interpretation = (
+            f"FLAG: gap {normalised:.3f} exceeds 0.10 target, but test Sharpe "
+            f"improved from {train_sharpe:.4f} to {test_sharpe:.4f} — "
+            f"large gap reflects inconsistency, not degradation"
+        )
+    else:
+        interpretation = (
+            f"FAIL: gap {normalised:.3f} exceeds 0.10 target — test Sharpe "
+            f"degraded from {train_sharpe:.4f} to {test_sharpe:.4f}"
+        )
+
     return {
         "train_sharpe":   round(train_sharpe,  4),
         "test1_sharpe":   round(test_sharpe,   4),
         "raw_difference": round(raw_diff,       4),
         "normalised_gap": round(normalised,     4),
-        "target_met":     bool(normalised < 0.10),
-        "interpretation": (
-            "PASS: strategy generalises within 10% Sharpe on unseen data"
-            if normalised < 0.10
-            else f"FAIL: gap {normalised:.3f} exceeds 0.10 target"
-        ),
+        "direction":      direction,
+        "target_met":     target_met,
+        "interpretation": interpretation,
     }
 
 

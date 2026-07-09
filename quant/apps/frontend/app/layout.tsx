@@ -5,6 +5,7 @@ import { cn } from "@frontend/lib/utils";
 import { Toaster } from "@frontend/components/ui/sonner";
 import { TooltipProvider } from "@frontend/components/ui/tooltip";
 import { DialogProvider } from "@frontend/components/dialogs";
+import { ThemeProvider } from "../components/shared/theme_provider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -41,12 +42,19 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-full flex flex-col">
-        <main>
-          <DialogProvider>
-            <TooltipProvider>{children}</TooltipProvider>
-            <Toaster />
-          </DialogProvider>
-        </main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main>
+            <DialogProvider>
+              <TooltipProvider>{children}</TooltipProvider>
+              <Toaster />
+            </DialogProvider>
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

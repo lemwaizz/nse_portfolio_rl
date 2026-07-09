@@ -6,9 +6,9 @@ import type {
 } from "@coordinator/models/enums/enums";
 
 const HORIZON_SCORE: Record<RiskProfileinvestmentHorizon, number> = {
-  short: 1,
+  short: 3,
   medium: 2,
-  long: 3,
+  long: 1,
 };
 
 const GOAL_SCORE: Record<RiskProfileInvestmentGoal, number> = {
@@ -49,6 +49,8 @@ const CONSERVATIVE_UPPER_BOUND = 1.667;
 const MODERATE_UPPER_BOUND = 2.333;
 
 function scoreToCategory(score: number): RiskProfileCategory {
+  console.log("🤝❌❌❌❌");
+  console.log(score);
   if (score <= CONSERVATIVE_UPPER_BOUND) return "conservative";
   if (score <= MODERATE_UPPER_BOUND) return "moderate";
   return "aggressive";
@@ -67,6 +69,8 @@ export function classifyRiskProfile(
     lossReactionScore * WEIGHTS.lossReaction;
 
   const category = scoreToCategory(weightedScore);
+  console.log("✅✅✅✅");
+  console.log(category);
 
   return {
     category,

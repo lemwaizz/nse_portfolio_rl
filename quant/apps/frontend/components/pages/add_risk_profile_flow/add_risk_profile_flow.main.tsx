@@ -67,9 +67,9 @@ export function AddRiskProfileFlowMainComponent() {
                       description="Knowing how long you need to stay invested helps us balance risk and potential returns"
                       items={[
                         {
-                          Icon: Clock1,
-                          label: "0 - 2 Years",
-                          title: "Short Term",
+                          Icon: CalendarDays,
+                          label: "7+ Years",
+                          title: "Long Term",
                         },
                         {
                           Icon: BellDot,
@@ -77,9 +77,9 @@ export function AddRiskProfileFlowMainComponent() {
                           title: "Medium Term",
                         },
                         {
-                          Icon: CalendarDays,
-                          label: "7+ Years",
-                          title: "Long Term",
+                          Icon: Clock1,
+                          label: "0 - 2 Years",
+                          title: "Short Term",
                         },
                       ]}
                     />

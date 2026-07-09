@@ -54,6 +54,8 @@ export const BuildPortfolioContent = ({
 }: {
   onNextPage: () => void;
 }) => {
+  const { holdings, error, isLoading } = useHoldings();
+
   return (
     <div className="grid gap-4 grid-cols-1 lg:grid-cols-5">
       <div className="col-span-1 lg:col-span-3">
@@ -83,10 +85,27 @@ export const BuildPortfolioContent = ({
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <UserAddedHoldings />
+            <UserAddedHoldings
+              holdings={holdings}
+              isLoading={isLoading}
+              error={error}
+            />
           </CardContent>
           <CardFooter>
-            <Button onClick={onNextPage}>
+            <Button
+              onClick={() => {
+                if ((holdings?.items.length ?? 0) <= 0) {
+                  toast.error(
+                    "Add some holdings to your portfolio to continue",
+                    {
+                      className: "text-foreground",
+                    },
+                  );
+                  return;
+                }
+                onNextPage();
+              }}
+            >
               Confirm & Continue
               <ArrowRight />
             </Button>
@@ -97,8 +116,16 @@ export const BuildPortfolioContent = ({
   );
 };
 
-const UserAddedHoldings = () => {
-  const { holdings, error, isLoading } = useHoldings();
+const UserAddedHoldings = ({
+  holdings,
+  error,
+  isLoading,
+}: {
+  holdings?: HoldingListResponse;
+  error: unknown;
+  isLoading: boolean;
+}) => {
+  // const { holdings, error, isLoading } = useHoldings();
   if (isLoading)
     return (
       <div className="my-3">

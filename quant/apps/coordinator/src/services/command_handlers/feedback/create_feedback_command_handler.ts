@@ -18,6 +18,7 @@ export abstract class CreateFeedbackCommandHandler {
         userId: createdById,
         feedback: data.feedback,
         title: data.title,
+        response: data.response,
       })
       .returning(["id"])
       .executeTakeFirstOrThrow();

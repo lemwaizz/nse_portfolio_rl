@@ -7,6 +7,7 @@ export const FeedbackSchema = z.object({
   createdAt: z.iso.datetime({ offset: true }),
   feedback: z.string(),
   title: z.string(),
+  response: z.unknown(),
   createdBy: z.object({
     id: z.string(),
     name: z.string(),

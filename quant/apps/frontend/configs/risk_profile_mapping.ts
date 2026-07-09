@@ -15,9 +15,9 @@ export const riskProfileMapping: Record<
       "Focused on preserving capital with steady, lower-risk returns.",
   },
   moderate: {
-    title: "Aggressive",
+    title: "Moderate",
     description:
-      "Seeking high capital growth with greater exposure to market volatility.",
+      "Balancing growth and stability with a moderate tolerance for risk.",
   },
 };
 

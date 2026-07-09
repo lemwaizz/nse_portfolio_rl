@@ -31,6 +31,7 @@ model User {
   riskProfile       RiskProfile?
   rlrecommendations RLRecommendation[]
   feedback          Feedback[]
+  datasets          Dataset[]
 
   @@unique([email])
   @@map("user")
@@ -167,6 +168,20 @@ model Feedback {
   userId    String
   title     String
   feedback  String
+  response  Json?    @db.JsonB
 
   @@map("feedback")
+}
+
+model Dataset {
+  id           String   @id @default(dbgenerated("uuidv7()"))
+  createdAt    DateTime @default(now())
+  uploadedBy   User     @relation(fields: [uploadedById], references: [id], onDelete: Cascade)
+  uploadedById String
+  fileName     String
+  summary      Json?    @db.JsonB
+  isActiveYear Boolean  @default(false)
+  year         Int
+
+  @@map("dataset")
 }

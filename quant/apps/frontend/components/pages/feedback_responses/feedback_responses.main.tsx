@@ -11,6 +11,7 @@ import {
 } from "@frontend/components/ui/empty";
 import { ThumbsUp } from "lucide-react";
 import type { FeedbackListResponse } from "@/apps/coordinator/src/models/resources";
+import type { RecommendationFeedbackValues } from "../feedback/recommendation_form";
 
 const FeedbackResponsesMainComponent = async () => {
   const reqHeaders = await headers();
@@ -61,8 +62,46 @@ const FeedbackTile = ({
   feedback: FeedbackListResponse["items"][0];
   isLast: boolean;
 }) => {
+  const feedbackValues = feedback.response as
+    | RecommendationFeedbackValues
+    | undefined
+    | null;
+  if (feedbackValues) {
+    return (
+      <div>
+        <div className={`py-3 ${!isLast ? "border-b" : ""}`}>
+          <div>
+            <p className="font-bold">
+              <span>Author: </span> {feedback.createdBy.name}
+            </p>
+          </div>
+          <p className={``}>
+            <span className="font-bold">Rating: </span> {feedbackValues.rating}
+          </p>
+          <p className={``}>
+            <span className="font-bold">Reason Categgory: </span>{" "}
+            {feedbackValues.reasonCategory}
+          </p>
+          <p className={``}>
+            <span className="font-bold">Action Taken: </span>{" "}
+            {feedbackValues.actionTaken}
+          </p>
+          <p className={``}>
+            <span className="font-bold">Confidence: </span>{" "}
+            {feedbackValues.confidence}
+          </p>
+          {feedbackValues.additionalComments && (
+            <p className={``}>
+              <span className="font-bold">Additional Comments: </span>{" "}
+              {feedbackValues.additionalComments}
+            </p>
+          )}
+        </div>
+      </div>
+    );
+  }
   return (
-    <div className={`${!isLast ? "border-b" : ""}`}>
+    <div className={`py-3 ${!isLast ? "border-b" : ""}`}>
       <div>
         <p className="font-bold">
           <span>Author: </span> {feedback.createdBy.name}

@@ -18,6 +18,7 @@ export const envConfigPlugin = env(
     BETTER_AUTH_URL: t.String(),
     GOOGLE_CLIENT_ID: t.String(),
     GOOGLE_CLIENT_SECRET: t.String(),
+    OPENAI_API_KEY: t.String(),
   },
   {
     onSuccess: (env) => {

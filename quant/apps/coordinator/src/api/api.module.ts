@@ -4,10 +4,12 @@ import { companiesController } from "@coordinator/api/routes/companies/companies
 import { riskProfilesController } from "@coordinator/api/routes/risk_profiles/risk_profile.controller";
 import { recommendationsController } from "@coordinator/api/routes/recommendations/recommendations.controller";
 import { feedbackController } from "@coordinator/api/routes/feedback/feedback.controller";
+import { datasetController } from "@coordinator/api/routes/dataset/dataset.controller";
 
 export const apiModule = new Elysia()
   .use(holdingsController)
   .use(companiesController)
   .use(riskProfilesController)
   .use(recommendationsController)
-  .use(feedbackController);
+  .use(feedbackController)
+  .use(datasetController);

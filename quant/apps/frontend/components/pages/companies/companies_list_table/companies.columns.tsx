@@ -18,6 +18,13 @@ import { Button } from "@frontend/components/ui/button";
 import type { CompanyListResponse } from "@coordinator/models/resources";
 import type { DataTableRowAction } from "@/apps/frontend/types/data_table_row_actions";
 
+export const truncate = (value: string, maxLength: number = 8) => {
+  if (value.length <= maxLength) {
+    return value;
+  }
+  return value.slice(0, maxLength) + "...";
+};
+
 type GetWebhookTableColumnsProps = {
   setRowAction: React.Dispatch<
     React.SetStateAction<DataTableRowAction<
@@ -65,6 +72,15 @@ export const getCompanyColumns = ({
     {
       accessorKey: "logoUrl",
       header: "Logo Url",
+      cell: ({ row }) => {
+        const company = row.original;
+        const imageUrl = company.logoUrl;
+        return (
+          <div className="text-muted-foreground">
+            {imageUrl ? truncate(imageUrl, 50) : "N/A"}
+          </div>
+        );
+      },
     },
     {
       id: "actions",

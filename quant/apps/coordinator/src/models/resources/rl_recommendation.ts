@@ -39,6 +39,15 @@ export type RecommendationResponse = {
     action_type: "BUY" | "SELL" | "HOLD";
     probability: number;
     action_index: number;
+    //
+    sector?: string;
+    return_20d?: number;
+    return_20d_rel?: "above" | "below";
+    vol_20d?: number;
+    vol_rel?: "above" | "below";
+    current_weight?: number;
+    cs_spread?: number;
+    rationale: string | null;
   }[];
   action_confidence: number;
   projected_weights: Record<string, number>;

@@ -11,3 +11,13 @@ export const formatDateString = (date: string) => {
   });
   return dateTimeFormatter.format(parsedDate);
 };
+
+export const formatToDateOnlyString = (date: string) => {
+  const parsedDate = new Date(date);
+  const dateTimeFormatter = new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+  return dateTimeFormatter.format(parsedDate);
+};

@@ -239,7 +239,7 @@ def predict(req: RecommendationRequest) -> RecommendationResponse:
             probability=round(alt_prob, 6),
             action_index=alt_idx,
         ))
-        if len(alternatives) == 5:
+        if len(alternatives) == 10:
             break
 
     return RecommendationResponse(

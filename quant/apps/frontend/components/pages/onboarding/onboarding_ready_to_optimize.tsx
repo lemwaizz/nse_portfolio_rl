@@ -31,7 +31,7 @@ const OnboardingReadyToOptimize = ({}: { onNextPage: () => void }) => {
   const [loading, setLoading] = React.useState(false);
   const router = useRouter();
 
-  if (loading) return <Spinner />;
+  if (isLoading) return <Spinner />;
   return (
     <div>
       <div className="flex flex-col items-center justify-center">
@@ -74,7 +74,7 @@ const OnboardingReadyToOptimize = ({}: { onNextPage: () => void }) => {
         </div>
       </div>
       <div className="mt-4 lg:mt-8 flex items-center justify-center">
-        {(holdings?.items.length ?? 0) > 0 && isLoading ? (
+        {(holdings?.items.length ?? 0) > 0 && loading ? (
           <Spinner />
         ) : (
           <Button

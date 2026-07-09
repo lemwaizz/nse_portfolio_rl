@@ -51,11 +51,11 @@ const data = {
       url: "feed-responses",
       icon: ReplyAll,
     },
-    // {
-    //   title: "Training Data",
-    //   url: "data",
-    //   icon: DatabasePlus,
-    // },
+    {
+      title: "Dataset",
+      url: "data",
+      icon: DatabasePlus,
+    },
   ],
 };
 

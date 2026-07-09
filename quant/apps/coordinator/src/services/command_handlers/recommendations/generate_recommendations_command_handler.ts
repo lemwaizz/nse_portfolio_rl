@@ -4,7 +4,10 @@ import { TickersSchema } from "@coordinator/models/commands/companies/create_com
 import type { ResourceCreated } from "@coordinator/models/infrastructure/general_responses";
 import { jsonBuildObject } from "kysely/helpers/postgres";
 import { sql } from "kysely";
-import { generateRationale } from "@coordinator/services/rationale.service";
+import {
+  generateRationale,
+  type GeneratedRationales,
+} from "@coordinator/services/rationale.service";
 import { status } from "elysia";
 
 interface StockFeatures {
@@ -114,12 +117,11 @@ export abstract class GenerateRecommendationCommandHandler {
       stock_features: stockFeatures,
       portfolio_weights: portfolioWeights,
     };
-    console.log(recommendationPayload);
     const response = await axios.post(
       recommendedEndpoint,
       recommendationPayload,
     );
-    let rationale;
+    let rationale: GeneratedRationales | undefined;
     try {
       rationale = await generateRationale(recommendationPayload, response.data);
     } catch (error) {
@@ -127,7 +129,11 @@ export abstract class GenerateRecommendationCommandHandler {
     }
     const recc = await db
       .insertInto("rl_recommendation")
-      .values({ payload: response.data, userId, rationale })
+      .values({
+        payload: rationale?.modifiedRes ?? response.data,
+        userId,
+        rationale: rationale?.primary,
+      })
       .returning(["id"])
       .executeTakeFirstOrThrow();
     return {

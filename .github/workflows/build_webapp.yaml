@@ -9,7 +9,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ghcr.io/nse_portfolio_rl/quant
+  IMAGE_NAME: ghcr.io/lemwaizz/quant
 
 concurrency:
   group: "${{ github.workflow }}-${{ github.ref }}--quant"

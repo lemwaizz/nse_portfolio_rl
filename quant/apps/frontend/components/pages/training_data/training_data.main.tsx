@@ -24,7 +24,7 @@ import { Button } from "../../ui/button";
 const TrainingDataMainComponent = () => {
   const { mutate } = useSWRConfig();
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
       <FileUpload03 />
       <div>
         <div className="flex gap-2 justify-between">
@@ -67,32 +67,6 @@ const TrainingDataMainComponent = () => {
 
 const DatasetListItems = () => {
   const { datasets, error, isLoading } = useDatasets();
-  // const isLoading = false;
-  // const error = undefined;
-  // const datasets: DatasetListResponse = {
-  //   $paginationType: "offset",
-  //   items: [
-  //     {
-  //       createdAt: "2026-07-09T01:23:36.665Z",
-  //       fileName: "fileName.csv",
-  //       id: "id",
-  //       uploadedBy: { name: "", id: "" },
-  //       year: 2010,
-  //       isActiveYear: false,
-  //       summary: {
-  //         rowsParsed: "4",
-  //         rowsCleaned: "4",
-  //         rowsAfterGapFill: "34",
-  //         featureRows: "323",
-  //         tickers: "100",
-  //         dateRange: {
-  //           from: "2026-07-09T01:23:36.665Z",
-  //           to: "2026-07-09T01:23:36.665Z",
-  //         },
-  //       },
-  //     },
-  //   ],
-  // };
   if (isLoading)
     return (
       <div className="my-3">

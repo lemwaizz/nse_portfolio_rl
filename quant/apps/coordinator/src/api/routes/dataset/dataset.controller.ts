@@ -45,7 +45,7 @@ export const datasetController = new Elysia({
       body: t.Object({
         year: t.Optional(t.String()),
         file: t.File({
-          type: "text/csv",
+          // type: "text/csv",
           maxSize: "10m", // 10 Megabytes
         }),
       }),

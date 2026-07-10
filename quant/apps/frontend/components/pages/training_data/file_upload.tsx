@@ -18,9 +18,11 @@ import { Separator } from "@frontend/components/ui/separator";
 import { cn } from "@frontend/lib/utils";
 import { toast } from "sonner";
 import { apiClient } from "@/packages/clients/src";
+import { BarLoaderFullScreenWidth } from "@frontend/components/ui/bar_loader";
 
 export default function FileUpload03() {
   const [files, setFiles] = React.useState<File[]>([]);
+  const [isLoading, setIsLoading] = React.useState(false);
   const [year, setYear] = React.useState<number>();
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: (acceptedFiles) => setFiles(acceptedFiles),
@@ -63,6 +65,7 @@ export default function FileUpload03() {
 
   return (
     <div className="p-10">
+      {isLoading && <BarLoaderFullScreenWidth loading={isLoading} />}
       <Card className="sm:mx-auto sm:max-w-xl shadow-none">
         <CardHeader>
           <CardTitle>Upload new Dataset</CardTitle>
@@ -90,6 +93,7 @@ export default function FileUpload03() {
                 return;
               }
               try {
+                setIsLoading(true);
                 const { error } = await apiClient.api.dataset.post({
                   file: files[0]!,
                   year: year.toString(),
@@ -98,12 +102,18 @@ export default function FileUpload03() {
                   toast.error("Dataset upload errored", {
                     className: "text-foreground",
                   });
+                  return;
                 }
+                toast.success("Successfully uploaded dataset", {
+                  className: "text-foreground",
+                });
               } catch (error) {
                 console.log(error);
                 toast.error("Something went wrong, please try again later", {
                   className: "text-foreground",
                 });
+              } finally {
+                setIsLoading(false);
               }
             }}
           >
@@ -118,7 +128,7 @@ export default function FileUpload03() {
                   name="dataset-year"
                   placeholder="Which year is this dataset from?"
                   className="mt-2"
-                  value={year}
+                  value={year ?? ""}
                   onChange={(e) => {
                     e.preventDefault();
                     setYear(Number(e.target.value));

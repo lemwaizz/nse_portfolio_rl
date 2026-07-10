@@ -1,0 +1,52 @@
+name: Publish Quant Recommender
+
+on:
+  push:
+    branches: ["master"]
+    paths:
+      - "quant/**"                   
+      - ".github/workflows/build_quant_recommender.yaml"
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ghcr.io/nse_portfolio_rl/quant_recommender
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}--quant-recommender"
+  cancel-in-progress: true
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v4
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_LOGIN_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v6
+        with:
+          images: ${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=sha
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v7
+        with:
+          context: ./quant_recommender
+          file: ./quant_recommender/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

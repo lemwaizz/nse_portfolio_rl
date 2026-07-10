@@ -39,10 +39,6 @@ export abstract class GenerateRecommendationCommandHandler {
     const recommendedEndpoint =
       process.env.QUANT_RECOMMENDER_ENDPOINT ??
       "http://localhost:8000/recommendations";
-    const today = new Date();
-
-    const asOfDate = new Date(today);
-    asOfDate.setFullYear(asOfDate.getFullYear() - 1);
 
     const holdingRows = await db
       .selectFrom("holding")
@@ -70,6 +66,20 @@ export abstract class GenerateRecommendationCommandHandler {
       .executeTakeFirst();
     if ((holdingRows?.holdings.length ?? 0) <= 0) {
       throw status(403);
+    }
+
+    const activeDataset = await db
+      .selectFrom("dataset as d")
+      .where("d.isActiveYear", "=", true)
+      .select(["d.year"])
+      .executeTakeFirst();
+
+    const today = new Date();
+    const asOfDate = new Date(today);
+    if (activeDataset) {
+      asOfDate.setFullYear(activeDataset.year);
+    } else {
+      asOfDate.setFullYear(asOfDate.getFullYear() - 1);
     }
 
     const featureRows = await db

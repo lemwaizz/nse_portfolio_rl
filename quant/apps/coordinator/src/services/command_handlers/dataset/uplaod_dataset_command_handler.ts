@@ -14,6 +14,9 @@ export abstract class UploadDatasetCommandHandler {
     payload: CreateHoldingPayload,
   ): Promise<ResourceCreated> => {
     const { file, uploadedById, data, db, log, year: yearField } = payload;
+    if (!file.name.toLocaleLowerCase().endsWith(".csv")) {
+      throw status(400, "INVALID FILE TYPE");
+    }
 
     const inferredYear = file.name.match(/(\d{4})/)?.[1];
     const year = yearField

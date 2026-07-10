@@ -60,10 +60,6 @@ export type Dataset = {
     isActiveYear: Generated<boolean>;
     year: number;
 };
-export type DatasetConfig = {
-    id: Generated<number>;
-    activeDatasetId: string | null;
-};
 export type Feedback = {
     id: Generated<string>;
     createdAt: Generated<Timestamp>;
@@ -132,7 +128,6 @@ export type DB = {
     account: Account;
     company: Company;
     dataset: Dataset;
-    dataset_config: DatasetConfig;
     feedback: Feedback;
     holding: Holding;
     risk_profile: RiskProfile;

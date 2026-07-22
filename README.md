@@ -1,3 +1,8 @@
+## Link to Deployed Solution
+- https://quant.lewynation.dev/dashboard/feed-responses
+
+## Link to Report
+- https://drive.google.com/file/d/1sFL8XFNoFRRUNs2dYdOxrqtO8SWfXwUV/view?usp=sharing
 ## Running the project
 ### 1. Local development
 
